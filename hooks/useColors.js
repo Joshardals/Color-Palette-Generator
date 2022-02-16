@@ -19,7 +19,7 @@ function useColors() {
       url: url,
       data: JSON.stringify(data),
     })
-      .then((res) => setPalette(res.data.result))
+      .then((res) => setPalette(res?.data.result))
       .catch((err) => console.log(err));
   };
 
