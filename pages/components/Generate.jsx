@@ -1,10 +1,19 @@
-import React from "react";
+import { useState, useCallback } from "react";
+import { debounce } from "lodash";
+import { useRecoilState } from "recoil";
+import { generateOpen } from "../../atoms/colorAtom";
 import tw from "tailwind-styled-components";
 
 const Generate = () => {
+  const [generated, setGenerated] = useRecoilState(generateOpen);
+
+  const handleColors = useCallback(
+    debounce(() => setGenerated(!generated), 200)
+  );
+
   return (
     <Wrapper>
-      <GenerateButton>Generate palette</GenerateButton>
+      <GenerateButton onClick={handleColors}>Generate palette</GenerateButton>
       <SomeContent>
         Or just press the "Spacebar" to generate new palettes.
       </SomeContent>
