@@ -25,7 +25,7 @@ function useColors() {
 
   useEffect(() => {
     generateColor();
-  }, []);
+  });
   useEffect(() => {
     generateColor();
   }, [isOpen]);

@@ -1,5 +1,4 @@
 import React from "react";
-
 import tw from "tailwind-styled-components";
 import Color from "./Color";
 import useColors from "../../hooks/useColors";
