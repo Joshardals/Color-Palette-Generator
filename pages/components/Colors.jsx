@@ -3,6 +3,7 @@ import tw from "tailwind-styled-components";
 import Color from "./Color";
 import useColors from "../../hooks/useColors";
 
+
 const Colors = () => {
   const data = useColors();
 

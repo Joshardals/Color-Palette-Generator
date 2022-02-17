@@ -1,5 +1,6 @@
 import React from "react";
 import tw from "tailwind-styled-components";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Color = ({ color }) => {
   return (
