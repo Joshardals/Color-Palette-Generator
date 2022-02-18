@@ -3,6 +3,7 @@ import { useRecoilValue } from "recoil";
 import { generateOpen } from "../atoms/colorAtom";
 import { spaceClicked } from "../atoms/keyAtom";
 import axios from "axios";
+import XMLHttpRequest from "xhr2";
 
 function useColors() {
   const [palette, setPalette] = useState(null);
@@ -15,17 +16,31 @@ function useColors() {
     input: ["N", "N", "N", "N", "N"],
   };
 
+  // const generateColor = async () => {
+  //   await axios({
+  //     method: "POST",
+  //     url: url,
+  //     data: JSON.stringify(data),
+  //   })
+  //     .then((res) => {
+  //       setPalette(res?.data.result);
+  //       console.log(res?.data.result);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   const generateColor = () => {
-    axios({
-      method: "POST",
-      url: url,
-      data: JSON.stringify(data),
-    })
-      .then((res) => {
-        setPalette(res?.data.result);
-        console.log(res?.data.result);
-      })
-      .catch((err) => console.log(err));
+    const http = new XMLHttpRequest();
+
+    http.onreadystatechange = function () {
+      if (http.readyState == 4 && http.status == 200) {
+        setPalette(JSON.parse(http.responseText).result);
+        console.log(JSON.parse(http.responseText).result)
+      }
+    };
+
+    http.open("POST", url, true);
+    http.send(JSON.stringify(data));
   };
 
   useEffect(() => {
