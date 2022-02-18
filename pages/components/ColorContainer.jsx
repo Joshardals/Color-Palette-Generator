@@ -5,7 +5,6 @@ import useKey from "../../hooks/useKey";
 
 const ColorContainer = () => {
   const data = useKey();
-  console.log(data);
   return (
     <Wrapper>
       <AnotherContent>Color #006992 copied to your clipboard</AnotherContent>

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { generateOpen } from "../atoms/colorAtom";
+import { spaceClicked } from "../atoms/keyAtom";
 import axios from "axios";
 
 function useColors() {
   const [palette, setPalette] = useState(null);
   const isOpen = useRecoilValue(generateOpen);
+  const spaceClick = useRecoilValue(spaceClicked);
 
   const url = "http://colormind.io/api/";
   const data = {
@@ -14,14 +16,17 @@ function useColors() {
   };
 
   const generateColor = async () => {
-    axios({
+    await axios({
       method: "POST",
       url: url,
       data: JSON.stringify(data),
     })
-      .then((res) => setPalette(res?.data.result))
+      .then((res) => {
+        setPalette(res?.data.result); 
+        console.log(res?.data.result)
+      })
       .catch((err) => console.log(err));
-  };
+  }; 
 
   useEffect(() => {
     generateColor();
@@ -29,6 +34,9 @@ function useColors() {
   useEffect(() => {
     generateColor();
   }, [isOpen]);
+  useEffect(() => {
+    generateColor();
+  }, [spaceClick]);
 
   return palette;
 }
