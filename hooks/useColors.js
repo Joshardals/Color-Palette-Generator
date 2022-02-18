@@ -15,18 +15,18 @@ function useColors() {
     input: ["N", "N", "N", "N", "N"],
   };
 
-  const generateColor = async () => {
-    await axios({
+  const generateColor = () => {
+    axios({
       method: "POST",
       url: url,
       data: JSON.stringify(data),
     })
       .then((res) => {
-        setPalette(res?.data.result); 
-        console.log(res?.data.result)
+        setPalette(res?.data.result);
+        console.log(res?.data.result);
       })
       .catch((err) => console.log(err));
-  }; 
+  };
 
   useEffect(() => {
     generateColor();
