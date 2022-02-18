@@ -9,7 +9,7 @@ const Colors = () => {
 
   return (
     <Wrapper>
-      {/* <Color color="#ECA400" />
+      {/* <Color color="#eca400" />
       <Color color="#EAF8BF" />
       <Color color="#006992" />
       <Color color="#27476E" />

@@ -1,11 +1,12 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import rgb2hex from "rgb2hex"; 
 
 const Color = ({ color }) => {
   return (
     <Wrapper>
-      <Item style={{backgroundColor: color}}></Item>
+      <Item style={{ backgroundColor: color }}></Item>
       <ColorCode>{color}</ColorCode>
     </Wrapper>
   );
