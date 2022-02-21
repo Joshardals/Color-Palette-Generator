@@ -15,7 +15,7 @@ const Colors = () => {
       <Color color="#27476E" />
       <Color color="#001D4A" /> */}
       {data?.map((res, index) => {
-        return <Color key={index} color={`rgb(${res})`} />;
+        return <Color key={index} color={res.toUpperCase()} />;
       })}
     </Wrapper>
   );
