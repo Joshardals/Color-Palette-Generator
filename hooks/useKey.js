@@ -11,6 +11,13 @@ function useKey() {
         setKeyClicked(true);
       }
     });
+    return () => {
+      window.removeEventListener("keydown", (e) => {
+        if (e.key === "c") {
+          setKeyClicked(true);
+        }
+      });
+    }
   });
   useEffect(() => {
     window.addEventListener("keydown", (e) => {

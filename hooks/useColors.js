@@ -29,7 +29,7 @@ function useColors() {
   //     .catch((err) => console.log(err));
   // };
   const palettee = new Palettee({
-    scheme: ["monochrome"],
+    scheme: ["gradient-multi"],
   });
 
   // const baseURL = "http://www.colourlovers.com/api/palettes/random";

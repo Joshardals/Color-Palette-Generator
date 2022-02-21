@@ -7,13 +7,11 @@ import tw from "tailwind-styled-components";
 const Generate = () => {
   const [generated, setGenerated] = useRecoilState(generateOpen);
 
-  const handleColors = useCallback(
-    debounce(() => setGenerated(!generated), 200)
-  );
-
   return (
     <Wrapper>
-      <GenerateButton onClick={handleColors}>Generate palette</GenerateButton>
+      <GenerateButton onClick={() => setGenerated(!generated)}>
+        Generate palette
+      </GenerateButton>
       <SomeContent>
         Or just press the "Spacebar" to generate new palettes.
       </SomeContent>

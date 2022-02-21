@@ -1,7 +1,6 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import rgb2hex from "rgb2hex"; 
 
 const Color = ({ color }) => {
   return (
@@ -13,12 +12,14 @@ const Color = ({ color }) => {
 };
 
 const Wrapper = tw.div`
-    bg-white h-[15rem] w-[10rem] rounded-lg p-[0.40rem]
+    bg-white rounded-full lg:rounded-lg lg:h-[15rem] lg:w-[10rem] p-[0.4rem]
+    cursor-pointer h-[10rem] w-[10rem] relative
 `;
 const Item = tw.div`
-    h-[85%] w-full rounded-md
+    lg:h-[85%] h-[100%] w-full lg:rounded-md rounded-full
 `;
 const ColorCode = tw.div`
-    text-center my-2 text-[#5c606e] font-semibold
+    text-center my-2 text-white lg:text-[#5c606e] font-semibold absolute
+    top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] lg:relative lg:top-0 lg:left-0
 `;
 export default Color;
