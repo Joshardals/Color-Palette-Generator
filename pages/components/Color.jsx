@@ -21,5 +21,6 @@ const Item = tw.div`
 const ColorCode = tw.div`
     text-center my-2 text-white lg:text-[#5c606e] font-semibold absolute
     top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] lg:relative lg:top-0 lg:left-0
+    lg:translate-x-0 lg:translate-y-0
 `;
 export default Color;
