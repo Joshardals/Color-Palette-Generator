@@ -1,5 +1,6 @@
 import React from "react";
 import tw from "tailwind-styled-components";
+import Fade from "react-reveal/Fade";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Color = ({ color }) => {
@@ -13,7 +14,7 @@ const Color = ({ color }) => {
 
 const Wrapper = tw.div`
     bg-white rounded-full lg:rounded-lg lg:h-[15rem] lg:w-[10rem] p-[0.4rem]
-    cursor-pointer h-[10rem] w-[10rem] relative
+    cursor-pointer h-[8rem] w-[8rem] relative
 `;
 const Item = tw.div`
     lg:h-[85%] h-[100%] w-full lg:rounded-md rounded-full
