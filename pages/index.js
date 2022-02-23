@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Wrapper>
       <Head>
-        <title>Create Next App</title>
+        <title>Color Palette Generator</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ColorContainer />

@@ -1,13 +1,24 @@
 import { useEffect } from "react";
 import tw from "tailwind-styled-components";
+import { useRecoilValue } from "recoil";
+import { colours, copied } from "../../atoms/keyAtom";
 import Colors from "./Colors";
 import useKey from "../../hooks/useKey";
+import Bounce from "react-reveal/Bounce"
 
 const ColorContainer = () => {
-  const data = useKey();
+  // const data = useKey();
+  const isCopied = useRecoilValue(copied);
+  const color = useRecoilValue(colours);
   return (
     <Wrapper>
-      <AnotherContent>Color #006992 copied to your clipboard</AnotherContent>
+      {isCopied ? (
+        <Bounce>
+          <AnotherContent>
+            Color {color} copied to your clipboard
+          </AnotherContent>
+        </Bounce>
+      ) : null}
       <Title>Color palette generator</Title>
       <Colors />
     </Wrapper>

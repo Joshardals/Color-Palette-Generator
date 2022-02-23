@@ -10,6 +10,8 @@ function useColors() {
   const isOpen = useRecoilValue(generateOpen);
   const spaceClick = useRecoilValue(spaceClicked);
 
+  // ---------- Api working on local server but not on production server ----------
+
   // const url = "http://colormind.io/api/";
   // const data = {
   //   model: "default",
@@ -28,41 +30,12 @@ function useColors() {
   //     })
   //     .catch((err) => console.log(err));
   // };
+
+  // --------- Api End -----
+
   const palettee = new Palettee({
     scheme: ["gradient-multi"],
   });
-
-  // const baseURL = "http://www.colourlovers.com/api/palettes/random";
-
-  // const generateColor = async () => {
-  //   await axios({
-  //     method: "GET",
-  //     baseURL: baseURL,
-  //     headers: {
-  //       "Access-Control-Allow-Origin": "*",
-  //       "Access-Control-Allow-Methods":
-  //         "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-  //       "Access-Control-Allow-Headers":
-  //         "x-access-token, Origin, X-Requested-With, Content-Type, Accept",
-  //     },
-  //   })
-  //     .then((res) => console.log(res.data))
-  //     .catch((err) => console.log(err));
-  // };
-
-  // const generateColor = () => {
-  //   const http = new XMLHttpRequest();
-
-  //   http.onreadystatechange = function () {
-  //     if (http.readyState == 4 && http.status == 200) {
-  //       setPalette(JSON.parse(http.responseText).result);
-  //       console.log(JSON.parse(http.responseText).result);
-  //     }
-  //   };
-
-  //   http.open("POST", url, true);
-  //   http.send(JSON.stringify(data));
-  // };
 
   useEffect(() => {
     setPalette(palettee.palette());

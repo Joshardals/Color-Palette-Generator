@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { spaceClicked } from "../atoms/keyAtom";
+import { keyClicked, spaceClicked } from "../atoms/keyAtom";
 
 function useKey() {
-  const [keyClicked, setKeyClicked] = useState(false);
+  const [keyClick, setKeyClick] = useRecoilState(keyClicked);
   const [spaceClick, setSpaceClick] = useRecoilState(spaceClicked);
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
       if (e.key === "c") {
-        setKeyClicked(true);
+        setKeyClick(true);
       }
     });
     return () => {
       window.removeEventListener("keydown", (e) => {
         if (e.key === "c") {
-          setKeyClicked(true);
+          setKeyClick(true);
         }
       });
     }
@@ -22,7 +22,7 @@ function useKey() {
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
       if (e.code === "Space") {
-        setSpaceClick(true);
+        setSpaceClick(!spaceClick);
       }
     });
     return () => {
