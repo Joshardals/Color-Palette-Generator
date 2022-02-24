@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { generateOpen } from "../atoms/colorAtom";
-import { spaceClicked } from "../atoms/keyAtom";
+import { spaceClicked, keyClicked } from "../atoms/keyAtom";
 import axios from "axios";
 import Palettee from "palettee";
 
@@ -9,6 +9,7 @@ function useColors() {
   const [palette, setPalette] = useState(null);
   const isOpen = useRecoilValue(generateOpen);
   const spaceClick = useRecoilValue(spaceClicked);
+  const keyClick = useRecoilValue(keyClicked);
 
   // ---------- Api working on local server but not on production server ----------
 
@@ -46,6 +47,9 @@ function useColors() {
   useEffect(() => {
     setPalette(palettee.palette());
   }, [spaceClick]);
+  useEffect(() => {
+    setPalette(palettee.palette());
+  }, [keyClick]);
 
   return palette;
 }

@@ -6,17 +6,21 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const Colors = () => {
   const data = useColors();
-  // const colors = data?.map((res, index) => {
-  //   return res
-  // }); 
-  useEffect(() => {
-    console.log('hello');
-  }, [data]); 
+  const colors = data?.map((res, index) => {
+    return res
+  });
   return (
     <Wrapper>
+      {
+        useEffect(() => {
+          // alert(colors) 
+        }, [data])
+      }
       {data?.map((res, index) => {
         return (
-          <Color key={index} color={res.toUpperCase()} />
+          <>
+             <Color key={index} color={res.toUpperCase()} />
+          </>
         )
       })}
     </Wrapper>
@@ -25,6 +29,7 @@ const Colors = () => {
 
 const Wrapper = tw.div`
     lg:flex items-center
-    grid grid-cols-2 gap-4
+    grid grid-cols-2 gap-8
+    md:grid-cols-3
 `;
 export default Colors;

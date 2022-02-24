@@ -5,15 +5,16 @@ import { keyClicked, spaceClicked } from "../atoms/keyAtom";
 function useKey() {
   const [keyClick, setKeyClick] = useRecoilState(keyClicked);
   const [spaceClick, setSpaceClick] = useRecoilState(spaceClicked);
+  
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
-      if (e.key === "c") {
-        setKeyClick(true);
+      if (e.key === "C") {
+        setKeyClick(!keyClick);
       }
     });
     return () => {
       window.removeEventListener("keydown", (e) => {
-        if (e.key === "c") {
+        if (e.key === "C") {
           setKeyClick(true);
         }
       });
@@ -32,9 +33,7 @@ function useKey() {
         }
       });
     };
-  });
-
-  return keyClicked, spaceClick;
+  },[]);
 }
 
 export default useKey;
