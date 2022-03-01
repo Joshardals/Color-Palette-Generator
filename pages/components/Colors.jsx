@@ -14,50 +14,50 @@ const Colors = () => {
   const [generated, setGenerated] = useRecoilState(generateOpen);
   const [spaceClick, setSpaceClick] = useRecoilState(spaceClicked);
 
-  useEffect(() => {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "c") {
-        setClick(!click);
-      }
-    });
+  // useEffect(() => {
+  //   document.addEventListener("keydown", (e) => {
+  //     if (e.key === "c") {
+  //       setClick(!click);
+  //     }
+  //   });
 
-    return () => {
-      document.removeEventListener("keydown", (e) => {
-        if (e.key === "c") {
-          setClick(!click);
-        }
-      });
-    };
-  }, [data]);
+  //   return () => {
+  //     document.removeEventListener("keydown", (e) => {
+  //       if (e.key === "c") {
+  //         setClick(!click);
+  //       }
+  //     });
+  //   };
+  // }, [data]);
 
-  useEffect(() => {
-    setNewData(data);
-  }, [click]);
+  // useEffect(() => {
+  //   setNewData(data);
+  // }, [click]);
 
-  useEffect(() => {
-    console.log(newData);
-  }, [newData]);
+  // useEffect(() => {
+  //   console.log(newData);
+  // }, [newData]);
 
-  useEffect(() => {
-    handleSpace();
-  }, [data]);
+  // useEffect(() => {
+  //   handleSpace();
+  // }, [data]);
 
-  const handleSpace = () => {
-    window.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        // setSpaceClick(!spaceClick);
-        setGenerated(!generated);
-      }
-    });
-    return () => {
-      window.removeEventListener("keydown", (e) => {
-        if (e.code === "Space") {
-          // setSpaceClick(!spaceClick);
-          setGenerated(!generated);
-        }
-      });
-    };
-  };
+  // const handleSpace = () => {
+  //   window.addEventListener("keydown", (e) => {
+  //     if (e.code === "Space") {
+  //       // setSpaceClick(!spaceClick);
+  //       setGenerated(!generated);
+  //     }
+  //   });
+  //   return () => {
+  //     window.removeEventListener("keydown", (e) => {
+  //       if (e.code === "Space") {
+  //         // setSpaceClick(!spaceClick);
+  //         setGenerated(!generated);
+  //       }
+  //     });
+  //   };
+  // };
 
   return (
     <Wrapper>
