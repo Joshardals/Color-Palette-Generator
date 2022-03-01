@@ -3,7 +3,6 @@ import tw from "tailwind-styled-components";
 import { useRecoilValue } from "recoil";
 import { colours, copied } from "../../atoms/keyAtom";
 import Colors from "./Colors";
-import useKey from "../../hooks/useKey";
 import Bounce from "react-reveal/Bounce"
 
 const ColorContainer = () => {

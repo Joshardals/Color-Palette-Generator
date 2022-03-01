@@ -1,5 +1,4 @@
-import { useState, useCallback } from "react";
-import { debounce } from "lodash";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { generateOpen } from "../../atoms/colorAtom";
 import tw from "tailwind-styled-components";
