@@ -9,7 +9,6 @@ function useColors() {
   const [palette, setPalette] = useState(null);
   const isOpen = useRecoilValue(generateOpen);
   const spaceClick = useRecoilValue(spaceClicked);
-  const keyClick = useRecoilValue(keyClicked);
 
   // ---------- Api working on local server but not on production server ----------
 
@@ -47,9 +46,7 @@ function useColors() {
   useEffect(() => {
     setPalette(palettee.palette());
   }, [spaceClick]);
-  useEffect(() => {
-    setPalette(palettee.palette());
-  }, [keyClick]);
+
 
   return palette;
 }

@@ -1,39 +1,25 @@
-import { useState, useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { keyClicked, spaceClicked } from "../atoms/keyAtom";
+// import { useState, useEffect } from "react";
+// import { useRecoilState } from "recoil";
+// import { keyClicked, spaceClicked } from "../atoms/keyAtom";
 
-function useKey() {
-  const [keyClick, setKeyClick] = useRecoilState(keyClicked);
-  const [spaceClick, setSpaceClick] = useRecoilState(spaceClicked);
+// function useKey() {
+//   const [keyClick, setKeyClick] = useRecoilState(keyClicked);
+//   const [spaceClick, setSpaceClick] = useRecoilState(spaceClicked);
+
+//   useEffect(() => {
+//     window.addEventListener("keydown", (e) => {
+//       if (e.code === "Space") {
+//         setSpaceClick(!spaceClick);
+//       }
+//     });
+//     return () => {
+//       window.removeEventListener("keydown", (e) => {
+//         if (e.code === "Space") {
+//           setSpaceClick(!spaceClick);
+//         }
+//       });
+//     };
+//   },[]);
+// }
   
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "C") {
-        setKeyClick(!keyClick);
-      }
-    });
-    return () => {
-      window.removeEventListener("keydown", (e) => {
-        if (e.key === "C") {
-          setKeyClick(true);
-        }
-      });
-    }
-  });
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        setSpaceClick(!spaceClick);
-      }
-    });
-    return () => {
-      window.removeEventListener("keydown", (e) => {
-        if (e.code === "Space") {
-          setSpaceClick(true);
-        }
-      });
-    };
-  },[]);
-}
-
-export default useKey;
+// export default useKey;

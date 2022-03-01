@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { colours, copied } from "../../atoms/keyAtom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-const Color = ({ color }) => {
+const Color = ({ color, color2 }) => {
   const [isCopied, setIsCopied] = useRecoilState(copied);
   const [colors, setColors] = useRecoilState(colours);
   const [click, setClick] = useState(false);
@@ -22,7 +22,7 @@ const Color = ({ color }) => {
     };
   }, [isCopied]);
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     setClick(!click);
   };
   useEffect(() => {
@@ -46,7 +46,7 @@ const Color = ({ color }) => {
         onCopy={() => {
           handleCopy();
           setColors(color);
-        }}
+        }} 
       >
         <ColorCode
           style={{ color: click ? "#0c1226" : null }}
